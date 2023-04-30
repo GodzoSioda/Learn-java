@@ -5,11 +5,26 @@ import javax.swing.JOptionPane;
 public class HelloWold {
 
 	public static void main(String[] args) {
-		
+		String title;
 		String text;
-		text = JOptionPane.showInputDialog("Enter tne text:");
-		JOptionPane.showMessageDialog (null,
-				"You have entered this text: \n" + text);
+		title = JOptionPane.showInputDialog(
+				null,
+				"Name for the window:",
+				"Title",
+				JOptionPane.QUESTION_MESSAGE
+				);
+		text = JOptionPane.showInputDialog(
+				null,
+				"Message's text:",
+				"Content",
+				JOptionPane.PLAIN_MESSAGE
+				);
+		JOptionPane.showMessageDialog(
+				null,
+				text,
+				title,
+				JOptionPane.INFORMATION_MESSAGE
+				);
 	}
 
 }
