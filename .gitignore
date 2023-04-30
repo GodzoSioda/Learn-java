@@ -1,1 +1,6 @@
 /.metadata/
+myNewProject/.settings/org.eclipse.core.resources.prefs
+myNewProject/.settings/org.eclipse.jdt.core.prefs
+myNewProject/bin/myNewProject/HelloWold.class
+myNewProject/.project
+myNewProject/.classpath
