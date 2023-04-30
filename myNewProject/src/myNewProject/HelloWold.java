@@ -1,6 +1,6 @@
 package myNewProject;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class HelloWold {
 
@@ -12,8 +12,7 @@ public class HelloWold {
 				null,
 				text,
 				title,
-				JOptionPane.WARNING_MESSAGE
-				);
+				JOptionPane.PLAIN_MESSAGE);
 	}
 
 }
