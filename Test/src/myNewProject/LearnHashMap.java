@@ -27,36 +27,12 @@ public class LearnHashMap {
 		DaysOfWeek tal = new DaysOfWeek("Saturday", "weekend", 24);
 		week.add(tal);
 		
-		Collections.sort(week, new Comparator<DaysOfWeek>() {
-			public int compare(DaysOfWeek o1, DaysOfWeek o2) {
-				int result = -(o1.partOfWeek.compareTo(o2.partOfWeek));
-				if (result == 0) {
-					return o1.weekday.compareTo(o2.weekday);
-				}
-				return result;
-			}
-		});
+		Collections.sort(week, (o1, o2)->o1.partOfWeek.compareTo(o2.partOfWeek));
 		for (DaysOfWeek integer: week) {
 		System.out.println(integer);
 		}
-		/*TreeMap<DaysOfWeek, Integer> treeweek = new TreeMap<>();
-		treeweek.put(fal, 17);
-		treeweek.put(fri, 9);
-		treeweek.put(sun, 4);
-		treeweek.put(wed, 7);
-		treeweek.put(sat, 9);
-		treeweek.put(tue, 6);
-		treeweek.put(mon, 5);
-		treeweek.put(tal, 24);
-		treeweek.put(thu, 8);*/
 		
 		
-		
-		
-		
-		
-		
-
 	}
 
 }
