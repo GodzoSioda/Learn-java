@@ -27,7 +27,7 @@ public class LearnHashMap {
 		DaysOfWeek tal = new DaysOfWeek("Saturday", "weekend", 24);
 		week.add(tal);
 		
-		Collections.sort(week, (o1, o2)->o1.partOfWeek.compareTo(o2.partOfWeek));
+		//Collections.sort(week, (o1, o2)->o1.partOfWeek.compareTo(o2.partOfWeek));
 		for (DaysOfWeek integer: week) {
 		System.out.println(integer);
 		}
