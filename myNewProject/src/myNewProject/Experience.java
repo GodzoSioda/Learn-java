@@ -4,67 +4,35 @@ public class Experience {
 
 	public static void main(String[] args) {
 
-		String x = "░"; //9617
-		String black = "█"; //9608
-		System.out.println(x.codePointAt(0));
-		System.out.println(black.codePointAt(0));
-		char ch = (char) 9608;
-		System.out.println(ch);
-		/*String field = fillField();
-		printField(field);
-		floodField(field);*/
-	}
-
-	public static void floodField(String field) {
-		if (!field.contains("X")) {
-			return;
+		int[] arr1 = {123, 11, 200, 1, 100, 150, 2000};
+		int[] arr2 = {931, 39, 196, 385, 388, 207, 185, 955, 957, 542, 904, 498, 394};
+		int[] arr3 = {5, 4, 2};
+		BinarySearchTree tree = new BinarySearchTree();
+		
+		for(int digit : arr1) {
+		tree.addNode(digit);
+		}
+		//System.out.println(tree.getAmountNodes());
+		tree.traverseInDepth();
+		//tree.printTree();
+		/*System.out.println(tree.getAmountNodes());
+		TreeNode result = tree.findNode(39);
+		if (result != null) {
+		System.out.println(result.toString());
 		} else {
-			char[] source = field.toCharArray();
-			char[] result = field.toCharArray();
-			for (int i = 0; i < source.length; i++) {
-				if (source[i] == 'O') {
-					if (i - 1 >= 0 && source[i - 1] == 'X') {
-						result[i - 1] = 'O';
-					}
-					if (i - 5 >= 0 && source[i - 5] == 'X') {
-						result[i - 5] = 'O';
-					}
-					if (i + 1 < source.length && source[i + 1] == 'X') {
-						result[i + 1] = 'O';
-					}
-					if (i + 5 < source.length && source[i + 5] == 'X') {
-						result[i + 5] = 'O';
-					}
-				}
-			}
-			String nextStep = new String(result);
-			printField(nextStep);
-			floodField(nextStep);
+			System.out.println("result is null");
 		}
+		tree.printString(result);
+		int value = 957;
+		String str1 = "\n"; 
+		String str2 = "" + value;
+		StringBuilder builder = new StringBuilder(str1);
+		builder.insert(0 , value);
+		builder.append(str2);
+		System.out.println(builder);
+		//System.out.println(str1);*/
+		
 	}
 
-	public static String fillField() {
-		int water1 = -1;
-		int water2 = 16;
-		int start = 4;
-		int step = 5;
-		int arrayLength = 19;
-		char[] array = new char[arrayLength];
-		for (int i = 0; i < array.length; i++) {
-			if (i == start) {
-				array[i] = (char) 10;
-				start += step;
-			} else if (i == water1 || i == water2) {
-				array[i] = (char) 79;
-			} else {
-				array[i] = (char) 88;
-			}
-		}
-		return new String(array);
-	}
-
-	public static void printField(String field) {
-		System.out.println(field);
-		System.out.println();
-	}
+	
 }
