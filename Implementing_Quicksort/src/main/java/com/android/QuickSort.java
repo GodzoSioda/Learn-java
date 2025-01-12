@@ -23,45 +23,27 @@ public class QuickSort {
 	}
 	
 	public static int partitionSort(int[] arr, int pivot, int finishPos) {
-		int biggerValuePos = searchBiggerValuePos(arr, pivot, finishPos);
-		int smallestValuePos = searchSmallestValuePos(arr, pivot, finishPos);
-		while(biggerValuePos <= smallestValuePos) {
-			swap(arr, biggerValuePos, smallestValuePos);
-			biggerValuePos = searchBiggerValuePos(arr, pivot, finishPos);
-			smallestValuePos = searchSmallestValuePos(arr, pivot, finishPos);
+		int startPos = pivot +1;
+		for(;;) {
+			for( ;startPos < finishPos && arr[startPos] < arr[pivot]; ) {
+				startPos += 1;
 			}
-		swap(arr, pivot, smallestValuePos);
-		return smallestValuePos;
-	}
-	
-	public static int searchBiggerValuePos(int[] arr, int pivot, int finishPos) {
-		int position = pivot;
-		for(int i = pivot +1; i <= finishPos; i++) {
-			if(arr[i] > arr[pivot]) {
-				position = i;
+			for( ;arr[finishPos] > arr[pivot]; ) {
+				finishPos -= 1;
+			}
+			if(startPos >= finishPos) {
 				break;
 			}
+			swap(arr, startPos++, finishPos--);
 		}
-		return position;
-	}
-	
-	public static int searchSmallestValuePos(int[] arr, int pivot, int reverseStartPos) {
-		int position = pivot;
-		for(int j = reverseStartPos; j > pivot; j--) {
-			if(arr[j] < arr[pivot]) {
-				position = j;
-				break;
-			}
-		}
-		return position;
+		swap(arr, pivot, finishPos);
+		return finishPos;
 	}
 	
 	public static void swap(int[] ar, int biggerValuePos, int smallestValuePos) {
 		int temp = ar[biggerValuePos];
 		ar[biggerValuePos] = ar[smallestValuePos];
 		ar[smallestValuePos] = temp;
-		if(biggerValuePos != smallestValuePos) {
 		list.add(Arrays.copyOf(ar, ar.length));
-		}
 	}
 }
