@@ -5,46 +5,27 @@ import java.util.List;
 
 public class JosephusSurvivor {
 
-	public static int[] findOutSequence(int amount, int step) {
-		int[] array = getArray(amount);
-		List<Integer> list = new ArrayList<>(amount);
+	public static <T>List<T> findOutSequence(final List<T> items, int k) {
+		List<T> resultList = new ArrayList<>(items.size());
 		int startPos = 0;
-		while(arrayIsNotEmpty(array)) {
-			int outPos = findOutPos(array, step, startPos, 0);
-			list.add(array[outPos]);
-			array[outPos] = 0;
+		while(items.stream().anyMatch(t -> t != null)) {
+			int outPos = findOutPos(items, k, startPos, 0);
+			resultList.add(items.get(outPos));
+			items.set(outPos, null);
 			startPos = outPos +1;
 					}
-		int[] resultArray = list.stream().mapToInt(Integer::intValue).toArray();
-		return resultArray;
+		return resultList;
 	}
 	
-	public static int findOutPos(int[] array, int step, int startPos, int posCounter) {
-		for(int i = startPos; i < array.length; i++) {
-			if(array[i] != 0) {
+	public static <T> int findOutPos(List<T> items, int k, int startPos, int posCounter) {
+		for(int i = startPos; i < items.size(); i++) {
+			if(items.get(i) != null) {
 				posCounter += 1;
 			}
-			if(posCounter == step) {
+			if(posCounter == k) {
 				return i;
 			}
 		}
-		return findOutPos(array, step, 0, posCounter);
-	}
-	
-	public static int[] getArray(int amount) {
-		int[] array = new int[amount];
-		for(int i = 0; i < array.length; i++) {
-			array[i] = i +1;
-		}
-		return array;
-	}
-	
-	public static boolean arrayIsNotEmpty(int[] array) {
-		for(int i = 0; i < array.length; i++) {
-			if(array[i] != 0) {
-				return true;
-			}
-		}
-		return false;
+		return findOutPos(items, k, 0, posCounter);
 	}
 }
