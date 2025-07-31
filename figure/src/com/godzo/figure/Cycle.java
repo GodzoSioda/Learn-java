@@ -11,7 +11,7 @@ public class Cycle extends Figure {
 
     @Override
     public double getArea() {
-        return 2 * Math.PI * radius;
+        return Math.PI * Math.pow(radius, 2.0);
     }
 
     @Override
